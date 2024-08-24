@@ -1,0 +1,212 @@
+:root{
+    --background: hsl(207, 95%, 8%);
+    --foreground: hsl(201, 83%, 81%);
+    --muted: hsl(207, 12%, 15%);
+    --muted-foreground: hsl(207, 12%, 65%);
+    --popover: hsl(207, 95%, 5%);
+    --popover-foreground: hsl(201, 83%, 91%);
+    --card: hsl(207, 95%, 6%);
+    --card-foreground: hsl(201, 83%, 86%);
+    --border: hsl(207, 85%, 13%);
+    --input: hsl(207, 85%, 16%);
+    --primary: hsl(205, 85%, 78%);
+    --primary-foreground: hsl(205, 85%, 18%);
+    --secondary: hsl(205, 30%, 25%);
+    --secondary-foreground: hsl(205, 30%, 85%);
+    --accent: hsl(207, 95%, 23%);
+    --accent-foreground: hsl(207, 95%, 83%);
+    --destructive: hsl(10, 93%, 48%);
+    --destructive-foreground: hsl(0, 0%, 100%);
+    --ring: hsl(205, 85%, 78%);
+}
+
+body {
+    background-color: var(--background);
+    color : var(--foreground);
+    font-family: 'Anek Malayalam', sans-serif;
+    margin : 0;
+    padding : 0;
+    display: block;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.navbar {
+    width: 700px;
+    max-width: 1200px; /* Limite la largeur maximale si nécessaire */
+    background-color: var(--primary);
+    color : var(--destructive-foreground);
+    border-color: var(--border);
+
+    display: flex;
+    justify-content: space-between; /*Espace entre le logo et les liens.*/
+    align-items: center;     /*Aligement vertical au centre*/
+    padding: 10px 20px;
+
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+    backdrop-filter: blur(10px); /* Effet de flou */
+    background-color: rgba(255, 255, 255, 0.1); /* Couleur de fond avec transparence */
+    
+}
+
+.navbar:hover {
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);       /* A revoir plus tard */
+}
+
+.navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-links {  /*Style pour les liens de navigation */
+    list-style: none;     /*Pour retirer les points*/
+    display : flex; /*Pour les aligner*/
+    gap : 20px; /* Espace entre les liens */
+}
+.navbar .nav-links li a {
+    color : white;
+    text-decoration: none;      /*Enlever le surlignage des liens */
+    padding : 10px;
+    transition : color 0.3s, background-color 0.3s;
+    border-radius: 5px;
+}
+
+.navbar .nav-links li a:hover {
+    backdrop-filter: blur(10px); /* Effet de flou */
+    background-color: rgba(255, 255, 255, 0.1); /* Couleur de fond avec transparence */
+    color: #48D3CE;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding : 20px;
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width : 700px;
+}
+
+.profile-info {
+    max-width: 60%;
+}
+
+.profile h1{
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.profile h2 {
+    font-size: 1.8em;
+    color : var(--primary);
+}
+
+.profile .name {
+    color : var(--primary-foreground);
+}
+
+.profile p {
+    margin: 10px 0;
+}
+
+.more-btn {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border : none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+.more-btn:hover {
+    background-color: var(--accent);
+    color : var(--accent-foreground);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.social-links {
+    display: flex;
+    gap : 25px;
+    margin-top: 10px;
+}
+
+.social-links img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Les icones doivent être de base blanche */
+
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center; /*Alignement vertical*/
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour l'effet de hover */
+} 
+
+.social-links a:hover {
+    border-radius: 8px; /* Arrondir les coins du fond (optionnel) */
+    transform: scale(1.1); 
+    z-index: 1;
+}
+
+/* Couleur pour chaque icones */
+
+.github:hover {
+    background-color: #333 ;
+}
+
+.linkedin:hover {
+    background-color: #0077B5;
+}
+
+.instagram:hover {
+    background-color: #E1306C;
+}
+
+.email:hover {
+    background-color: #FFC107;
+}
+
+
+.profile-image {
+    max-width: 35%;
+}
+
+.profile-image img  {
+    border-radius: 6%;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.actions {
+    display: flex;
+    align-items: center;         /*Alignement vertical*/
+    gap: 20px;      /* Espace entre le bouton et les icones.*/
+    margin-top : 15px;
+}
+
