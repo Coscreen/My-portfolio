@@ -7,6 +7,8 @@
     <title>Bouchoucha Samy Elias . Software Enginner</title>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
+
 <body>
     <div class="container">
     <header>
@@ -52,36 +54,146 @@
                 <div class="project-item">
                     <h2><img src="/img/dashboard.png" alt="icon" class="project-icon"> Web Application</h2>
                     <p> A web-based application designed to efficiently manage thesis defenses within a department. It provides a comprehensive platform for handling topics, end-of-cycle project evaluations, and personalized dashboards for faculty, students, and department administrators. The application also features an automated scheduling system that takes into account room availability and faculty commitments.</p>
-                    <a href="#" class="project-btn">Voir plus</a>
+                    <a data-modal ="modal1" class="project-btn">Images</a>
                 </div>
 
                 <div class="project-item">
-                    <h2><img src="/img/médecine.png" alt="icon" class="project-icon2">Desktop application</h2>
+                    <h2><img src="/img/médecine.png" alt="icon" class="project-icon2"> Desktop application</h2>
                     <p> A Java-developed desktop application providing a centralized platform for medical office management. The system offers role-based access control, ensuring data confidentiality between users and departments. Integrated analytics modules provide insights into medical trends and financial performance.</p>
-                    <a href="#" class="project-btn">Voir plus</a>
+                    <a data-modal ="modal2" href="#" class="project-btn">Images</a>
                 </div>
                 
+                <div class="project-item">
+                    <h2><img src="/img/parking.png" alt="icon" class="project-icon3"> Desktop application </h2>
+                    <p> Java-based desktop software designed to manage parking operations, providing customized dashboards for various user roles.</p>
+                    <a data-modal ="modal3" href="#" class="project-btn">Images</a>
+                </div>
+
                 <div class="project-item">
                     <h2><img src="/img/security2.png" alt="icon" class="project-icon"> RSA algorithm (Sécurity)</h2>
                     <p> Java implementation of the RSA algorithm for data encryption and decryption, ensuring data security.</p>
                 </div>
 
                 <div class="project-item">
-                    <h2><img src="/img/binaire.png" alt="icon" class="project-icon3">Data compression /decompression algorithm</h2>
+                    <h2><img src="/img/binaire.png" alt="icon" class="project-icon3"> Data compression /decompression algorithm</h2>
                     <p> C++ hospital patient management algorithm using binary/text storage</p>
                 </div>
 
                 <div class="project-item">
-                    <h2><img src="/img/word-game.png" alt="icon" class="project-icon">Pascal word search puzzle</h2>
+                    <h2><img src="/img/word-game.png" alt="icon" class="project-icon"> Pascal word search puzzle</h2>
                     <p> Pascal word search puzzle (terminal & GUI)</p>
                 </div>
 
-                <div class="project-item">
-                    <h2>.</h2>
-                </div>
             </div>
+        </section>
+
+        <section class="fun-projects">
+            <h1>Fun projects</h1>
+            
+            <div class="fun-project-item">
+                <h2><img src="/img/habbo.png" alt="icon" class="project-icon">Habbo game</h2>
+                <p>As a middle school student, I customized a Habbo game CMS and deployed it on a web server. I additionally acquired an online database and dedicated server for this project, however, financial limitations prevented me from successfully launching the game.</p>
+            </div>
+
+        </section>
+
+        <section class="Contacts"> 
+            <h1>Contacts</h1>
         </section>
     </main>
     </div>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>           <!-- C'est la petite croix pour fermer le modal -->
+            <h1>Somes pictures of the project</h1>
+
+            <!-- slider container (les photos) -->
+            <div class="slider-container">
+                <div class="slide">
+                    <img src="/img/Soutenance_Login.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Soutenance_admin_user.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Soutenance_admin_planning.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Soutenance_enseignant.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Soutenance_Leader.png" alt="">
+                </div>
+            </div>
+
+            <!-- Previous and next buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>           <!-- C'est la petite croix pour fermer le modal -->
+            <h1>Somes pictures of the project</h1>
+
+            <!-- slider container (les photos) -->
+            <div class="slider-container">
+                <div class="slide">
+                    <img src="/img/Medisoft_Splash.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Medisoft_Login.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Medisoft_Paramètre.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Medisoft_Prévilèges_user.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Medisoft_Dashboard_doctor.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Medisoft_Ordonnance.png" alt="">
+                </div>
+            </div>
+
+            <!-- Previous and next buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>           <!-- C'est la petite croix pour fermer le modal -->
+            <h1>Somes pictures of the project</h1>
+
+            <!-- slider container (les photos) -->
+            <div class="slider-container">
+                <div class="slide">
+                    <img src="/img/Parking_Login.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Parking_Acceui dashboard gérant.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Parking_Acceuil dashboard compatble.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/img/Parking_EntréeSortie agentES.png" alt="">
+                </div>
+            </div>
+
+            <!-- Previous and next buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <script src="/main.js"></script>
 </body>
 </html>
