@@ -111,6 +111,10 @@ body {
     max-width: 60%;
 }
 
+.profile-info p{
+    font-size: 1.2em;
+}
+
 .profile h1{
     font-size: 2em;
     margin-bottom: 10px;
@@ -127,6 +131,7 @@ body {
 
 .profile p {
     margin: 10px 0;
+    
 }
 
 .more-btn {
@@ -630,4 +635,43 @@ body {
 
 .prev:hover, .next:hover {
     color: #ddd;
+}
+
+/* Contact me  */
+.actions2 {
+    display: flex;
+    align-items: center;         /*Alignement vertical*/
+    gap: 20px;      /* Espace entre le bouton et les icones.*/
+    margin-top : 15px;
+    justify-content: center;     /* Alignement horizontal au centre */
+    margin-bottom: 20px;
+}
+
+.social-links2 {
+    display: flex;
+    gap : 25px;
+    margin-top: 10px;
+}
+
+.social-links2 img {
+    display: block;
+    width: 38px;
+    height: 38px;
+    filter: brightness(0) invert(1); /* Les icones doivent être de base blanche */
+}
+
+.social-links2 a {
+    display: flex;
+    justify-content: center;
+    align-items: center; /*Alignement vertical*/
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour l'effet de hover */
+} 
+
+.social-links2 a:hover {
+    border-radius: 8px; /* Arrondir les coins du fond (optionnel) */
+    transform: scale(1.1); 
+    z-index: 1;
 }
