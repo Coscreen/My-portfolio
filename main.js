@@ -1,5 +1,9 @@
-// Récupérer tous les boutons qui ouvrent les modals
 const modalBtns = document.querySelectorAll('.project-btn');
+const homeBtn = document.getElementById('home-btn');
+const contactBtn = document.getElementById('contact-btn');
+const contactSection = document.getElementById('contacts');
+const projectBtn = document.getElementById('project-btn');
+const projectSection = document.getElementById('projects');
 
 // Fonction pour ouvrir un modal spécifique
 function openModal(modalId) { 
@@ -87,3 +91,30 @@ document.addEventListener('keydown', function(event) {
         });
     }
 });
+
+
+//Défilement pour home et contact me
+
+// Ajouter des événements de clic pour le bouton "Home"
+homeBtn.addEventListener('click', function(event) {
+    event.preventDefault(); // Empêche le comportement par défaut de l'ancre
+    window.scrollTo({top : 0, behavior : 'smooth' });
+});
+
+// Ajouter des événements de clic pour le bouton "Contact me"
+
+contactBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    contactSection.scrollIntoView({ behavior : 'smooth'});
+});
+
+// Ajouter des événements de clic pour le bouton "Projects"
+
+projectBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // Calculer la position de la section et ajouter un décalage
+    const offsetPosition = projectSection.getBoundingClientRect().top + window.scrollY - 92 ;
+    window.scrollTo({ top : offsetPosition , behavior : 'smooth'});
+});
+
