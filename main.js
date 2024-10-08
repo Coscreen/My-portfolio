@@ -114,7 +114,7 @@ projectBtn.addEventListener('click', function(event) {
     event.preventDefault();
 
     // Calculer la position de la section et ajouter un décalage
-    const offsetPosition = projectSection.getBoundingClientRect().top + window.scrollY - 92 ;
+    const offsetPosition = projectSection.getBoundingClientRect().top + window.scrollY - 99 ;
     window.scrollTo({ top : offsetPosition , behavior : 'smooth'});
 });
 
