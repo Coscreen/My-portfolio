@@ -122,6 +122,6 @@ projectBtn.addEventListener('click', function(event) {
 // Redirection vers la page me quand j'appuie sur le bouton more about me
 
 document.getElementById('redirect-btn-me').addEventListener('click', function() {
-    window.location.href = 'me.html';
+    window.location.href = './me.html';
 } )
 

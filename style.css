@@ -305,7 +305,7 @@ body {
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: auto;
-    width : 17%;
+    width : 33%;
 }
 
 .project-btn:hover {
@@ -802,7 +802,7 @@ body {
     }
 
     .project-btn {
-        width : 15%;
+        width : 32%;
     }
 
     .fun-projects {
