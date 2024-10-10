@@ -540,6 +540,29 @@ body {
     color: #ddd;
 }
 
+/* La page me  */
+.profile-info-me {
+    line-height: 1.6;
+    font-size: 1.1em;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.profile-info-me p{
+    margin-bottom: 15px;
+    text-align: justify;
+    text-indent: 10px;
+}
+
+.profile-info-me p:last-child {
+    margin-bottom: 0;
+}
+
+.profile-info-me strong {
+    font-weight: bold;
+}
+
 /* Media Queries  */
 
 /* Version tablette */
@@ -747,6 +770,13 @@ body {
         font-size: 1.25em;
     }
 
+    .profile-info-me p {
+        font-size: 1em;
+        line-height: 1.5;
+        margin: 10px 0;
+        text-align: justify;
+    }
+
     .profile-image {
         display: none;
     }
@@ -829,7 +859,7 @@ body {
         width: 100%;
         flex-direction: column;
         align-items: center;
-        border-radius: 0;
+        border-radius: 10px;
     }
 
     .profile-info{
@@ -840,6 +870,11 @@ body {
 
     .profile p {
         font-size: 1.25em;
+    }
+
+    .profile-info-me {
+        font-size: 0.9em;
+        padding: 10px;
     }
 
     .profile-image {
@@ -943,7 +978,7 @@ body {
         width: 100%;
         flex-direction: column;
         align-items: center;
-        border-radius: 0;
+        border-radius: 10px;
     }
 
     .profile-info{
@@ -954,6 +989,10 @@ body {
 
     .profile p {
         font-size: 1.25em;
+    }
+
+    .profile-info-me {
+        padding: 10px;
     }
 
     .profile-image {
@@ -1056,7 +1095,7 @@ body {
         width: 100%;
         flex-direction: column;
         align-items: center;
-        border-radius: 0;
+        border-radius: 10px;
     }
 
     .profile-info{
@@ -1067,6 +1106,10 @@ body {
 
     .profile p {
         font-size: 1.25em;
+    }
+
+    .profile-info-me {
+        padding: 5px;
     }
 
     .profile-image {
@@ -1150,4 +1193,5 @@ body {
         margin-left : -143px;
     }
 }
+
 

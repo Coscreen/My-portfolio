@@ -118,3 +118,10 @@ projectBtn.addEventListener('click', function(event) {
     window.scrollTo({ top : offsetPosition , behavior : 'smooth'});
 });
 
+
+// Redirection vers la page me quand j'appuie sur le bouton more about me
+
+document.getElementById('redirect-btn-me').addEventListener('click', function() {
+    window.location.href = 'me.html';
+} )
+
