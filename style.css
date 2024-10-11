@@ -841,12 +841,7 @@ body {
     }
 }
 
-@media (max-width:376px) {
-    .modal {
-        width: 180%;
-        margin-left : -152px;
-    }
-}
+
 @media (max-width:375px) {
     .navbar {
         padding: 5px 0;
@@ -1078,8 +1073,8 @@ body {
     }
 
     .modal {
-        width: 195%;
-        margin-left : -172px;
+        width: 700px;
+        margin-left : -169px;
     }
 }
 
