@@ -791,8 +791,23 @@ body {
         margin-top: 10px;
     }
 
+    .more-btn {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+
+    .social-links img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .social-links a {
+        width : 28px;
+        height: 28px;
+    }
+
     .actions {
-        margin-left : -50px;
+        margin-left : -20px;
     }
 
     .projects {
@@ -1007,6 +1022,20 @@ body {
         margin-top: 10px;
     }
 
+    .more-btn {
+        font-size: 0.75em;
+    }
+
+    .social-links img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .social-links a {
+        width : 26px;
+        height: 26px;
+    }
+
     .actions { 
         align-self: flex-start;
         width: 100%;
@@ -1188,7 +1217,7 @@ body {
         width : 30px;
         height: 30px;
     }
-    
+
     .modal-content {
         width: 98%;
     }
