@@ -591,12 +591,11 @@ body {
 
 .project-icon3:hover {
     transform: rotate(6deg) scale(1.15);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)) brightness(1.1);
-    animation: wiggle 0.4s ease-in-out;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)) brightness(1.1);    animation: wiggle 0.4s ease-in-out;
 }
 
 
-.fun-projects { 
+.fun-projects {
     margin-top: 40px;
     padding : 20px;
     background-color: var(--card);
@@ -921,9 +920,7 @@ body {
 
     .more-btn {
         width: 100px;
-    }
-
-    .projects {
+    }    .projects {
         width: 565px;
         margin: auto;
         margin-top: 15px;
@@ -931,9 +928,7 @@ body {
 
     .projects h1 {
         font-size: 1.8em;
-    }
-
-    .project-btn {
+    }    .project-btn {
         width : 89px;
     }
 
@@ -1004,9 +999,7 @@ body {
 
     .profile-info{
         font-size: 0.9em;
-    }
-
-    .projects {
+    }    .projects {
         width: 465px;
         margin: auto;
         margin-top: 15px;
@@ -1014,9 +1007,7 @@ body {
 
     .projects h1 {
         font-size: 1.8em;
-    }
-
-    .project-btn {
+    }    .project-btn {
         width : 89px;
     }
 
@@ -1118,9 +1109,7 @@ body {
         width: 100%;
         gap: 15px;
         justify-content: flex-start;
-    }
-
-    .projects {
+    }    .projects {
         width: 364px;
         margin: auto;
         margin-top: 15px;
@@ -1128,9 +1117,7 @@ body {
 
     .projects h1 {
         font-size: 1.8em;
-    }
-
-    .project-btn {
+    }    .project-btn {
         width : 89px;
     }
 
@@ -1222,9 +1209,7 @@ body {
         display: flex;
         gap : 10px;
         margin-left: 0;   
-    }
-
-    .projects {
+    }    .projects {
         width: 100%;
         margin: auto;
         margin-top: 15px;
@@ -1243,6 +1228,22 @@ body {
 
     .project-btn {
         width : 89px;
+    }
+
+    .ecommerce-projects {
+        width: 100%;
+        margin: auto;
+        margin-top: 15px;
+        border-radius: 0;
+    }
+
+    .ecommerce-list {
+        width: 100%;
+        margin-right: 50px;
+    }
+
+    .ecommerce-projects h1 {
+        font-size: 1.8em;
     }
 
     .fun-projects {
@@ -1467,8 +1468,7 @@ body {
         width: 100%;
         margin-top: 10px;
         display: flex;
-        gap : 10px;
-        margin-left: -60px;   
+        gap : 10px;        margin-left: -60px;   
     }
 
     .projects {
@@ -1490,6 +1490,22 @@ body {
 
     .project-btn {
         width : 89px;
+    }
+
+    .ecommerce-projects {
+        width: 100%;
+        margin: auto;
+        margin-top: 15px;
+        border-radius: 0;
+    }
+
+    .ecommerce-list {
+        width: 95%;
+        margin-right: 0;
+    }
+
+    .ecommerce-projects h1 {
+        font-size: 1.8em;
     }
 
     .fun-projects {
