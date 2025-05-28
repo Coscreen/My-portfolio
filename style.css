@@ -2,6 +2,147 @@
     box-sizing: border-box; /* pour éviter que le padding dépasse la largeur définie */
 }
 
+/* Animations légères */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.005);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-3deg);
+    }
+    75% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+    }
+    50% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+    }
+}
+
+@keyframes photoFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(0.5deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-3px) rotate(-0.5deg);
+    }
+}
+
+/* Effet de particules */
+@keyframes particle-float {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--random-x, 20px), var(--random-y, -30px)) scale(0);
+        opacity: 0;
+    }
+}
 
 html {
     max-width: 100%;
@@ -46,6 +187,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    animation: fadeIn 0.5s ease-out;
 }
 
 
@@ -116,10 +258,18 @@ body {
     max-width: 1200px;
     width : 700px;
     margin-top: 80px;
+    animation: fadeInUp 0.8s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .profile-info {
     max-width: 60%;
+    animation: slideInLeft 0.8s ease-out 0.1s both;
 }
 
 .profile-info p{
@@ -157,11 +307,34 @@ body {
     transition: background-color 0.3s, color 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
+    width: 200px ;
 }
 .more-btn:hover {
     background-color: var(--accent);
     color : var(--accent-foreground);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Effet ripple pour les boutons */
+.project-btn, .more-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
 
 .social-links {
@@ -175,7 +348,9 @@ body {
     width: 24px;
     height: 24px;
     filter: brightness(0) invert(1); /* Les icones doivent être de base blanche */
-
+    transition: all 0.3s ease;
+    animation: glow 3s ease-in-out infinite;
+    animation-delay: calc(var(--icon-delay, 0) * 0.5s);
 }
 
 .social-links a {
@@ -186,12 +361,23 @@ body {
     height: 36px;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour l'effet de hover */
+    --icon-delay: 0;
 } 
+
+.social-links a:nth-child(1) { --icon-delay: 0; }
+.social-links a:nth-child(2) { --icon-delay: 1; }
+.social-links a:nth-child(3) { --icon-delay: 2; }
+.social-links a:nth-child(4) { --icon-delay: 3; }
 
 .social-links a:hover {
     border-radius: 8px; /* Arrondir les coins du fond (optionnel) */
-    transform: scale(1.1); 
+    transform: scale(1.2) rotate(5deg); 
     z-index: 1;
+    animation: bounce 0.6s ease;
+}
+
+.social-links a:hover img {
+    animation: wiggle 0.5s ease-in-out;
 }
 
 /* Couleur pour chaque icones */
@@ -217,6 +403,7 @@ body {
 }
 .profile-image {
     max-width: 35%;
+    animation: slideInRight 0.8s ease-out 0.3s both;
 }
 
 .profile-image img  {
@@ -224,6 +411,17 @@ body {
     width: 100%;
     height: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    animation: photoFloat 8s ease-in-out infinite;
+    filter: brightness(1) contrast(1.05);
+}
+
+.profile-image img:hover {
+    transform: scale(1.08) rotate(2deg);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1) contrast(1.1) saturate(1.2);
+    animation-play-state: paused;
+    border-radius: 8%;
 }
 
 
@@ -245,6 +443,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
     width : 700px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .projects h1 {
@@ -253,6 +452,7 @@ body {
     color: var(--primary);
     text-align: center;
     margin-top: 0;
+    animation: fadeIn 0.8s ease-out 0.5s both;
 }
 
 .project-list {
@@ -261,21 +461,40 @@ body {
     gap : 20px;
 }
 
+.project-list .project-item:nth-child(1) {
+    animation-delay: 0.7s;
+}
+
+.project-list .project-item:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.project-list .project-item:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+.project-list .project-item:nth-child(4) {
+    animation-delay: 1s;
+}
+
 .project-item {
     background-color: rgba(173, 216, 230, 0.4);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation: fadeIn 0.6s ease-out, float 6s ease-in-out infinite;
 }
 
 .project-item:hover {
-    transform: translateY(-5px);
-    color : var(--primary-foreground);  /*Je ne connais pas l'utilité */
+    transform: translateY(-8px);
+    color : var(--primary-foreground);
     margin-bottom: 10px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    animation-play-state: paused;
 }
 
 .project-item h2 {
@@ -315,11 +534,29 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Améliorations des transitions */
+.project-btn, .more-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-btn:active, .more-btn:active {
+    transform: scale(0.95);
+}
+
 .project-icon {
     width: 70px;
     height: 70px;
     margin-right: 10px;
     vertical-align: middle;      /*Pour ajuster le h2 */
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    animation: float 5s ease-in-out infinite;
+}
+
+.project-icon:hover {
+    transform: rotate(10deg) scale(1.15);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)) brightness(1.1);
+    animation: wiggle 0.5s ease-in-out;
 }
 
 .project-icon2 {
@@ -328,6 +565,16 @@ body {
     margin-right: 10px;
     vertical-align: middle;   
     margin-top: 5px;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    animation: float 5.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+.project-icon2:hover {
+    transform: rotate(-8deg) scale(1.15);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)) brightness(1.1);
+    animation: bounce 0.6s ease;
 }
 
 .project-icon3 {
@@ -336,6 +583,16 @@ body {
     margin-right: 10px;
     vertical-align: middle;   
     margin-top: 5px;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.project-icon3:hover {
+    transform: rotate(6deg) scale(1.15);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)) brightness(1.1);
+    animation: wiggle 0.4s ease-in-out;
 }
 
 
@@ -348,6 +605,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
     width : 700px;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .fun-projects h1 {
@@ -356,6 +614,7 @@ body {
     color: var(--primary);
     text-align: center;
     margin-top: 0;
+    animation: fadeIn 0.8s ease-out 0.7s both;
 }
 
 
@@ -364,17 +623,20 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation: fadeIn 0.6s ease-out, float 6s ease-in-out infinite;
+    animation-delay: 0.5s;
 }
 
 .fun-project-item:hover {
-    transform: translateY(-5px);
-    color : var(--primary-foreground);  /*Je ne connais pas l'utilité */
+    transform: translateY(-8px);
+    color : var(--primary-foreground);
     margin-bottom: 10px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    animation-play-state: paused;
 }
 
 .fun-project-item h2 {
@@ -400,6 +662,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
     width : 700px;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 .Contacts h1 {
     font-size: 2em;
@@ -407,6 +670,19 @@ body {
     color: var(--primary);
     text-align: center;
     margin-top: 0;
+    animation: fadeIn 0.8s ease-out 0.9s both;
+}
+
+/* Animation des titres au scroll */
+.projects h1, .fun-projects h1, .Contacts h1 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.projects h1.animate-in, .fun-projects h1.animate-in, .Contacts h1.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .actions2 {
@@ -429,6 +705,9 @@ body {
     width: 38px;
     height: 38px;
     filter: brightness(0) invert(1); /* Les icones doivent être de base blanche */
+    transition: all 0.4s ease;
+    animation: glow 4s ease-in-out infinite;
+    animation-delay: calc(var(--icon-delay-2, 0) * 0.3s);
 }
 
 .social-links2 a {
@@ -439,12 +718,23 @@ body {
     height: 56px;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour l'effet de hover */
+    --icon-delay-2: 0;
 } 
+
+.social-links2 a:nth-child(1) { --icon-delay-2: 0; }
+.social-links2 a:nth-child(2) { --icon-delay-2: 1; }
+.social-links2 a:nth-child(3) { --icon-delay-2: 2; }
+.social-links2 a:nth-child(4) { --icon-delay-2: 3; }
 
 .social-links2 a:hover {
     border-radius: 8px; /* Arrondir les coins du fond (optionnel) */
-    transform: scale(1.1); 
+    transform: scale(1.2) rotate(-5deg); 
     z-index: 1;
+    animation: bounce 0.7s ease, pulse 1.5s infinite;
+}
+
+.social-links2 a:hover img {
+    animation: wiggle 0.6s ease-in-out;
 }
 
 /* Le modal à partir d'ici  */
@@ -459,6 +749,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);   /*pour tout mettre en gris en arrière blanc*/
+    animation: fadeIn 0.3s ease-out;
 }
 
 .modal-content { 
@@ -471,6 +762,8 @@ body {
     background-color: var(--card);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.4s ease-out;
+    transform-origin: center;
 }
 
 .modal-content img {
@@ -508,12 +801,18 @@ body {
 .slide {
     display: none;
     text-align: center;
+    animation: fadeIn 0.5s ease-out;
 }
 
 .slide img {
     width: 100%;
     max-height: 500px;
     object-fit : contain;
+    transition: transform 0.3s ease;
+}
+
+.slide img:hover {
+    transform: scale(1.02);
 }
 
 .prev, .next {
@@ -526,7 +825,8 @@ body {
     color: white;
     font-weight: bold;
     font-size: 20px;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    opacity: 0.7;
 }
 
 .prev {
@@ -539,6 +839,8 @@ body {
 
 .prev:hover, .next:hover {
     color: #ddd;
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
 }
 
 /* La page me  */
@@ -615,6 +917,10 @@ body {
 
     .profile-info{
         font-size: 0.9em;
+    }
+
+    .more-btn {
+        width: 100px;
     }
 
     .projects {
@@ -792,8 +1098,9 @@ body {
     }
 
     .more-btn {
-        font-size: 0.8em;
-        padding: 6px 12px;
+        font-size: 0.9em;
+        padding: 6px 16px;
+        width: 100%;
     }
 
     .social-links img {
@@ -807,7 +1114,10 @@ body {
     }
 
     .actions {
-        margin-left : -20px;
+        margin: 0 auto;
+        width: 100%;
+        gap: 15px;
+        justify-content: flex-start;
     }
 
     .projects {
@@ -835,7 +1145,7 @@ body {
     }
 
     .Contacts {
-        width: 365px;
+        width: 364px;
         margin: auto;
         margin-top: 15px;
     }
@@ -1195,6 +1505,7 @@ body {
 
     .fun-project-item {
         width: 100%;
+        margin-right: 50px;
     }
 
     .Contacts {
@@ -1221,6 +1532,39 @@ body {
     .modal-content {
         width: 98%;
     }
+}
+
+/* Effet de brillance sur les icônes */
+.project-icon, .project-icon2, .project-icon3 {
+    position: relative;
+}
+
+.project-icon::before, .project-icon2::before, .project-icon3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-item:hover .project-icon::before,
+.project-item:hover .project-icon2::before,
+.project-item:hover .project-icon3::before {
+    left: 100%;
+}
+
+/* Position relative pour les particules */
+.profile-image {
+    position: relative;
+}
+
+/* Animation des icônes au focus */
+.social-links a:focus img,
+.social-links2 a:focus img {
+    animation: bounce 0.5s ease, glow 1s ease;
 }
 
 
