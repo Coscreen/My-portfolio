@@ -1040,6 +1040,14 @@ body {
         width : 34px;
         height: 34px;
     }
+    .actions {
+        margin-left: 0px;
+        flex-direction: row;
+        align-items: center;
+        width: 150%;
+        gap: 15px;
+        justify-content: flex-start;
+    }
 
 }
 
@@ -1076,9 +1084,7 @@ body {
         line-height: 1.5;
         margin: 10px 0;
         text-align: justify;
-    }
-
-    .profile-image {
+    }    .profile-image {
         display: none;
     }
 
@@ -1090,8 +1096,8 @@ body {
 
     .more-btn {
         font-size: 0.9em;
-        padding: 6px 16px;
-        width: 100%;
+        padding: 8px 16px;
+        width: 120px;
     }
 
     .social-links img {
@@ -1105,8 +1111,10 @@ body {
     }
 
     .actions {
-        margin: 0 auto;
-        width: 100%;
+        margin-left: -60px;
+        flex-direction: row;
+        align-items: center;
+        width: 150%;
         gap: 15px;
         justify-content: flex-start;
     }    .projects {
@@ -1349,7 +1357,7 @@ body {
 
     .actions { 
         align-self: flex-start;
-        width: 100%;
+        width: 150%;
         margin-top: 10px;
         display: flex;
         gap : 10px;
